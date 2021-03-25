@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  background-color: #66e0f0;
+}
+ul {
+  display: flex;
+  margin-right: 20px;
+  position: relative;
+  list-style-type: none;
+}
+ul li {
+  margin-right: 30px;
+}
+ul li:not(:last-child)::after {
+  content: "|";
+  position: absolute;
+  right: -10px;
+  font-weight: bold;
+}

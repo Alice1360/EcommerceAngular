@@ -1,0 +1,5 @@
+<h2>Products list</h2>
+<p *ngIf="productSelected"> <button (click)="close()">x</button> Vous avez selectionné : {{productSelected?.name}}</p>
+<ul app-product>
+    <app-product *ngFor=" let name of allProducts" [product]="name" (evenEmit)="getInfoFromChildren($event)"></app-product>
+</ul>

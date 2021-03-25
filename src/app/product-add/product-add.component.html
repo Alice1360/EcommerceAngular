@@ -1,0 +1,36 @@
+<button (click)="add()">+</button><button (click)="close()">-</button>
+<div *ngIf="activated">
+  <h3>Ajoutez un produit</h3>
+  <ul *ngIf="submitted">
+    <li *ngIf="myForm.controls['name']?.errors?.required"> Le nom est obligatoire</li>
+    <li *ngIf="myForm.controls['description']?.errors?.required"> La description est obligatoire</li>
+    <li *ngIf="myForm.controls['description']?.errors?.maxlength"> La description doit avoir 100 caractères max</li>
+    <li *ngIf="myForm.controls['description']?.errors?.minlength"> la description doit avoir au moins 10 caractères</li>
+    <li *ngIf="myForm.controls['category']?.errors?.required"> La catégorie est obligatoire</li>
+    <li *ngIf="myForm.controls['price']?.errors?.required"> Le prix est obligatoire</li>
+    <li *ngIf="myForm.controls['promo']?.errors?.required"> La case promo est obligatoire</li>
+  </ul>
+  <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <div>
+    <label for="formName">Name: </label>
+    <input type="text" formControlName="name" id="formName">
+  </div>
+  <div>
+    <label for="formDescription">Description: </label>
+    <input type="text" formControlName="description" id="formDescription">
+  </div>
+  <div>
+    <label for="formCategory">Category: </label>
+    <input type="text" formControlName="category" id="formCategory">
+  </div>
+  <div>
+    <label for="formPrice">Price: </label>
+    <input type="text" formControlName="price" id="formPrice">
+  </div>
+  <div>
+    <label for="formPromo">Promo: </label>
+    <input type="text" formControlName="promo" id="formPromo">
+  </div>
+  <button type="submit">GO</button>
+  </form>
+</div>

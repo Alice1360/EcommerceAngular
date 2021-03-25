@@ -1,0 +1,19 @@
+<button (click)="toggle()">Toggle</button>
+<div *ngIf="activated">
+  <ul *ngIf="submitted">
+    <li *ngIf="myForm.controls['companyName']?.errors?.required"> Le nom est obligatoire</li>
+    <li *ngIf="myForm.controls['bankAccountNumber']?.errors?.required"> Le numéro est obligatoire</li>
+  </ul>
+  <h3>Ajoutez un supplier</h3>
+  <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+    <div>
+      <label for="formCompanyName">Company name: </label>
+      <input type="text" formControlName="companyName" id="formCompanyName">
+    </div>
+    <div>
+      <label for="formBankAccountNumber">bankAccountNumber: </label>
+      <input type="text" formControlName="bankAccountNumber" id="formBankAccountNumber">
+    </div>
+    <button type="submit">GO</button>
+  </form>
+</div>
